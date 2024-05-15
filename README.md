@@ -1,3 +1,76 @@
+# Running the React App Locally with Docker
+
+This guide will walk you through the steps to set up and run the React app locally using Docker. 
+You'll learn how to get the web application running on `localhost:7775` (`127.0.0.1:7775`).
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Docker: [Install Docker](https://docs.docker.com/get-docker/)
+
+## Steps
+
+1. **Create React App**
+
+    Create a new React app using `create-react-app`:
+
+    ```
+    npx create-react-app my-app
+    ```
+
+2. **Insert Title**
+
+    Open `App.js` and insert an `<h1>` tag with the text "Codin 1".
+
+3. **Create Dockerfile**
+
+    Create a file named `Dockerfile` in the root directory of your React app, and add the following content:
+
+    ```Dockerfile
+    FROM node:lts-iron
+
+    WORKDIR /lastName_firstName_site/
+
+    COPY public/ /lastName_firstName_site/public
+    COPY src/ /lastName_firstName_site/src
+    COPY package.json /lastName_firstName_site/
+
+    RUN npm install
+
+    CMD ["npm", "start"]
+    ```
+
+4. **Build Docker Image**
+
+    Open Git Bash and navigate to the root directory of your React app. Then, build the Docker image:
+
+    ```
+    docker image build -t lastName_firstName_coding_assignment11:latest .
+    ```
+
+5. **Run Docker Container**
+
+    Run the Docker container with port mapping:
+
+    ```
+    docker run -dp 7775:3000 --name lastName_firstName_coding_assignment11 lastName_firstName_coding_assignment11:latest
+    ```
+
+6. **Access the App**
+
+    Open your web browser and navigate to [http://localhost:7775](http://localhost:7775) to view the running React app.
+
+## Notes
+
+- Port `7775` is mapped to the React app's default port `3000` within the Docker container. You can change the local port as needed.
+- Ensure that Docker Desktop is running on your system before executing Docker commands.
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
