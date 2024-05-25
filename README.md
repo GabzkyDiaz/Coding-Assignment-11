@@ -30,11 +30,11 @@ Before you begin, ensure you have the following installed:
     ```Dockerfile
     FROM node:lts-iron
 
-    WORKDIR /lastName_firstName_site/
-
-    COPY public/ /lastName_firstName_site/public
-    COPY src/ /lastName_firstName_site/src
-    COPY package.json /lastName_firstName_site/
+    WORKDIR /diaz_gabby_site/
+ 
+    COPY public/ /diaz_gabby_site/public
+    COPY src/ /diaz_gabby_site/src
+    COPY package.json /diaz_gabby_site/
 
     RUN npm install
 
@@ -46,7 +46,7 @@ Before you begin, ensure you have the following installed:
     Open Git Bash and navigate to the root directory of your React app. Then, build the Docker image:
 
     ```
-    docker image build -t lastName_firstName_coding_assignment11:latest .
+    docker image build -t diaz_gabby_coding_assignment11:latest .
     ```
 
 5. **Run Docker Container**
@@ -54,7 +54,7 @@ Before you begin, ensure you have the following installed:
     Run the Docker container with port mapping:
 
     ```
-    docker run -dp 7775:3000 --name lastName_firstName_coding_assignment11 lastName_firstName_coding_assignment11:latest
+    docker run -dp 7775:3000 --name diaz_gabby_coding_assignment11 diaz_gabby_coding_assignment11:latest
     ```
 
 6. **Access the App**
